@@ -33,6 +33,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-commentary'
     " Add multiple cursors
     Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+    " Startify
+    Plug 'mhinz/vim-startify'
 
 
 call plug#end()

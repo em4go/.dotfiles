@@ -8,3 +8,6 @@ source $HOME/.config/nvim/plug-config/rnvimr.vim
 lua require'plug-colorizer'
 source $HOME/.config/nvim/plug-config/rainbow.vim
 source $HOME/.config/nvim/plug-config/commentary.vim
+source $HOME/.config/nvim/plug-config/start-screen.vim
+
+" .dotfiles/nvim/
