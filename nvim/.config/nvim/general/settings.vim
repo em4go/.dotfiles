@@ -35,8 +35,7 @@ set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 "set autochdir                           " Your working directory will always be the same as your working directory
 
-" Limit the line width to 80 characters
-set columns=80
+" Create a line drawn width to 80 characters
 set wrap
 set colorcolumn=80
 

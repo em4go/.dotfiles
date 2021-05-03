@@ -35,6 +35,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mg979/vim-visual-multi', {'branch': 'master'}
     " Startify
     Plug 'mhinz/vim-startify'
+    " Working with tags
+    Plug 'tpope/vim-surround'
+    Plug 'alvan/vim-closetag'
+    " Snippets
+    Plug 'honza/vim-snippets'
 
 
 call plug#end()
