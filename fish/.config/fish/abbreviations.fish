@@ -36,11 +36,15 @@ abbr gs 'git status'
 abbr gc 'git clone'
 abbr gd 'git diff'
 
-# Apt-Get
-abbr paci 'sudo pacman -S'
+# pacman
+abbr pacin 'sudo pacman -S'
 abbr pacr 'sudo pacman -R'
-abbr pacu 'sudo pacman -Sy'
-abbr pacug 'sudo pacman -Syu'
+abbr pacy 'sudo pacman -Sy'
+abbr pacu 'sudo pacman -Syu'
+
+# yay
+abbr yin 'yay -S'
+abbr yre 'yay -R'
 
 # Neovim
 abbr nv nvim
@@ -48,3 +52,7 @@ abbr v nvim
 
 # Clear
 abbr cl clear
+
+# FZF
+abbr pacinfzf 'pacman -Slq | fzf -m --preview \'cat <(pacman -Si {1}) <(pacman -Fl {1} | awk "{print \$2}")\' | xargs -ro sudo pacman -S'
+abbr yinfzf 'yay -Slq | fzf -m --preview \'cat <(yay -Si {1}) <(yay -Fl {1} | awk "{print \$2}")\' | xargs -ro  yay -S'
