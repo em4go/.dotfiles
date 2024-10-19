@@ -71,12 +71,20 @@ alias l='lsd --group-dirs=first'
 alias la='lsd -a --group-dirs=first'
 alias lla='lsd -lha --group-dirs=first'
 alias cat='batcat'
-alias vim='nvim'
+alias fd='fdfind -i' # find files and directories
+alias fda='fdfind --follow --hidden --exclude .git'
+alias vim='hx'
+alias ..='cd ..'
+alias ...='cd ../..'
 alias c='clear'
+alias lzd='lazydocker'
+alias lzg='lazygit'
 
 # Functions
 function mkcd(){
   mkdir -p "$@" && cd $_
 }
 
-
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
