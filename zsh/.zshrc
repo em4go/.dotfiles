@@ -17,6 +17,9 @@ zinit light starship/starship
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(zoxide init --cmd cd zsh)"
 
+fpath+=~/.zfunc
+autoload -Uz compinit && compinit
+
 # Add in zsh plugins
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-syntax-highlighting
@@ -33,9 +36,6 @@ zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
-
-# Load completions
-autoload -U compinit && compinit
 
 zinit cdreplay -q
 
@@ -79,12 +79,44 @@ alias ...='cd ../..'
 alias c='clear'
 alias lzd='lazydocker'
 alias lzg='lazygit'
+alias explorer="nautilus"
 
 # Functions
+fpath+=~/.zfunc
+
+# Custom functions
 function mkcd(){
   mkdir -p "$@" && cd $_
 }
 
+# node version manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Pyenv to path
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# nvdia cuda
+export PATH=/usr/local/cuda-12.6/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-12.6/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+# nvidia tensorrt
+export PATH=/usr/local/cuda-12.6/bin:/usr/local/TensorRT-10.5.0.18/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-12.6/lib64:/usr/local/TensorRT-10.5.0.18/lib:$LD_LIBRARY_PATH
+
+
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/ernesto/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
+
+source $HOME/.cargo/env
+

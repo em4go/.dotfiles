@@ -6,6 +6,8 @@ line-number = "relative"
 rulers = [80]
 cursorline = true
 bufferline = "always"
+true-color = true
+color-modes =true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -57,9 +59,14 @@ esc = ["collapse_selection", "keep_primary_selection"]
 A-x = "extend_to_line_bounds"
 X = ["extend_line_up", "extend_to_line_bounds"]
 space.c = "toggle_comments"
+space.l = "goto_line_end"
+space.h = "goto_line_start"
+g.c = "goto_line_start"
+C-A = "toggle_comments"
 
-C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+# move line up or down
+A-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 
 V = ["select_mode", "extend_to_line_bounds"]
 G = "goto_last_line"
