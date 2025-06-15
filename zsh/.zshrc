@@ -70,10 +70,10 @@ alias ll='lsd -lh --group-dirs=first'
 alias l='lsd --group-dirs=first'
 alias la='lsd -a --group-dirs=first'
 alias lla='lsd -lha --group-dirs=first'
-alias cat='batcat'
+alias cat='bat'
 alias fd='fdfind -i' # find files and directories
 alias fda='fdfind --follow --hidden --exclude .git'
-alias vim='hx'
+alias hx='helix'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias c='clear'
@@ -118,5 +118,4 @@ export PATH
 
 # <<< juliaup initialize <<<
 
-source $HOME/.cargo/env
-
+. "$HOME/.local/bin/env"
