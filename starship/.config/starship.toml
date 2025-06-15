@@ -56,6 +56,7 @@ disabled = false
 style = "bg:color_orange fg:color_fg0"
 
 [os.symbols]
+CachyOS = "󰌽"
 Windows = "󰍲"
 Ubuntu = "󰕈"
 SUSE = ""
