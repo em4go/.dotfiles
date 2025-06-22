@@ -80,6 +80,7 @@ alias c='clear'
 alias lzd='lazydocker'
 alias lzg='lazygit'
 alias explorer="nautilus"
+alias p='sudo pacman'
 
 # Functions
 fpath+=~/.zfunc
@@ -119,3 +120,18 @@ export PATH
 # <<< juliaup initialize <<<
 
 . "$HOME/.local/bin/env"
+
+# fnm
+FNM_PATH="/home/ernesto/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/ernesto/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+
+# pnpm
+export PNPM_HOME="/home/ernesto/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
