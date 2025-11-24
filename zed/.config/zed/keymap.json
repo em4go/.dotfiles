@@ -1,0 +1,107 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "shift shift": "file_finder::Toggle",
+      // --- Globales ---
+      "ctrl-alt-v": "workspace::ToggleVimMode",
+      "alt-t": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      // --- Leader Key Mappings (Leader = space) ---
+
+      // Edición básica
+      "space d": ["workspace::SendKeystrokes", "d d"], // Borrar línea
+      "space c": "editor::ToggleComments", // Comentar línea
+      "space r": "editor::Rename", // Renombrar (LSP)
+      "space a": "editor::ToggleCodeActions", // Quick Fixes (LSP)
+
+      // Navegación en línea
+      "space h": "vim::FirstNonWhitespace", // Ir al inicio real (_)
+      "space l": "vim::EndOfLine", // Ir al final ($)
+
+      // Paneles y Ventanas
+      "space e": "workspace::ToggleLeftDock", // Sidebar
+      "space f": "pane::RevealInProjectPanel", // Revelar archivo actual en árbol
+      "space q": "pane::CloseActiveItem", // Cerrar buffer
+      "space t": "workspace::ToggleBottomDock", // Abrir/Cerrar Terminal (Panel inferior)
+      "space i": "agent::ToggleFocus", // Foco al Asistente IA
+
+      // Búsqueda y Símbolos
+      "space s": "outline::Toggle", // Outline (Símbolos)
+      "space /": "pane::DeploySearch", // Búsqueda global
+
+      // Navegación de Buffers (Tabs)
+      "tab": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      // --- Visual Mode Mejorado ---
+
+      // Indentación (mantiene la selección)
+      ">": "editor::Indent",
+      "<": "editor::Outdent",
+
+      // Comentar bloque seleccionado
+      "space c": "editor::ToggleComments",
+
+      // Extender selección a extremos
+      "space h": "vim::FirstNonWhitespace",
+      "space l": "vim::EndOfLine"
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      // --- Salidas rápidas a Normal Mode ---
+      "j k": "vim::NormalBefore",
+      "k j": "vim::NormalBefore",
+      "ctrl-j": "vim::NormalBefore",
+      "ctrl-k": "vim::NormalBefore",
+      "ctrl-s": "workspace::Save"
+    }
+  },
+  {
+    "context": "Editor && !menu",
+    "bindings": {
+      // --- Restaurar atajos estándar del sistema ---
+      // Esto sobreescribe comportamientos de Vim (ej. Ctrl-C, Ctrl-V)
+      "ctrl-c": "editor::Copy",
+      "ctrl-x": "editor::Cut",
+      "ctrl-v": "editor::Paste",
+      "ctrl-z": "editor::Undo",
+      "ctrl-y": "editor::Redo",
+      "ctrl-f": "buffer_search::Deploy",
+      "ctrl-a": "editor::SelectAll"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      // --- Movimiento de Líneas (Estilo VS Code) ---
+      // Funciona en todos los modos (Normal, Visual, Insert)
+      "shift-alt-j": "editor::MoveLineDown",
+      "shift-alt-k": "editor::MoveLineUp"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      // --- Terminal ---
+      // Usamos Alt+t dentro de la terminal para evitar escribir espacios
+      "alt-t": "workspace::ToggleBottomDock"
+    }
+  }
+]
