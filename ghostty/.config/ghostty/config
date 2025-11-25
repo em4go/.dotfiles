@@ -146,3 +146,5 @@ keybind = ctrl+shift+v=paste_from_clipboard
 # --- Tema ---
 # Ghostty tiene temas integrados. Puedes usar 'ghostty +list-themes' para verlos.
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+
+maximize = true
