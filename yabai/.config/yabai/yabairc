@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# ==============================================================================
+# SISTEMA Y SCRIPTING ADDITION
+# ==============================================================================
+# Cargar Scripting Addition (Vital para M5 con SIP off para funciones avanzadas)
+# Requiere configurar sudoers para no pedir contraseña (ver instrucciones abajo)
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+# ==============================================================================
+# CONFIGURACIÓN GENERAL Y LAYOUT
+# ==============================================================================
+# Layout por defecto: bsp (tiling), stack (apilado) o float (flotante)
+yabai -m config layout bsp
+
+# Las nuevas ventanas aparecen como "segundo hijo" (división más natural)
+yabai -m config window_placement second_child
+
+# ==============================================================================
+# ESPACIADO (PADDING)
+# ==============================================================================
+yabai -m config top_padding    0
+yabai -m config bottom_padding 0
+yabai -m config left_padding   0
+yabai -m config right_padding  0
+yabai -m config window_gap     10
+
+# ==============================================================================
+# FOCO Y RATÓN
+# ==============================================================================
+# El ratón salta al centro de la ventana cuando esta recibe el foco
+yabai -m config mouse_follows_focus on
+
+# La ventana bajo el ratón recibe el foco automáticamente (autofocus)
+# Nota: Si el foco se vuelve errático, cambiar 'autofocus' por 'off'
+yabai -m config focus_follows_mouse autofocus
+
+# Modificador para mover/redimensionar ventanas con el ratón (ctrl + clic)
+yabai -m config mouse_modifier ctrl
+yabai -m config mouse_action1 move    # Izquierdo: Mover
+yabai -m config mouse_action2 resize  # Derecho: Redimensionar
+yabai -m config mouse_drop_action swap # Soltar ventana intercambia lugar
+
+# ==============================================================================
+# REGLAS DE EXCLUSIÓN (APPS FLOTANTES)
+# ==============================================================================
+# Apps del sistema que no funcionan bien en tiling
+yabai -m rule --add app="^(System Settings|Ajustes del Sistema)$" manage=off
+yabai -m rule --add app="^(Activity Monitor|Monitor de Actividad)$" manage=off
+yabai -m rule --add app="^(Disk Utility|Utilidad de Discos)$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^Stats$" manage=off
+
+# Reglas específicas de espacios
+yabai -m rule --add app="^Ghostty$" space=^2
