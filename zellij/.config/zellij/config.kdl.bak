@@ -1,0 +1,94 @@
+keybinds {
+    normal {
+        // Los atajos directos funcionan en modo normal
+        bind "Ctrl Shift l" { GoToNextTab; }
+        bind "Ctrl Shift h" { GoToPreviousTab; }
+        bind "Ctrl Alt h" { MoveFocus "left"; }
+        bind "Ctrl Alt j" { MoveFocus "down"; }
+        bind "Ctrl Alt k" { MoveFocus "up"; }
+        bind "Ctrl Alt l" { MoveFocus "right"; }
+    }
+    locked {
+        bind "Ctrl g" { SwitchToMode "normal"; }
+    }
+    pane {
+        bind "h" { MoveFocus "left"; SwitchToMode "normal"; }
+        bind "j" { MoveFocus "down"; SwitchToMode "normal"; }
+        bind "k" { MoveFocus "up"; SwitchToMode "normal"; }
+        bind "l" { MoveFocus "right"; SwitchToMode "normal"; }
+        bind "n" { NewPane "right"; SwitchToMode "normal"; }
+        bind "d" { NewPane "down"; SwitchToMode "normal"; }
+        bind "x" { CloseFocus; SwitchToMode "normal"; }
+        bind "f" { ToggleFocusFullscreen; SwitchToMode "normal"; }
+        bind "p" { SwitchFocus; SwitchToMode "normal"; }
+        bind "w" { ToggleFloatingPanes; SwitchToMode "normal"; }
+    }
+    tab {
+        bind "h" { GoToPreviousTab; SwitchToMode "normal"; }
+        bind "l" { GoToNextTab; SwitchToMode "normal"; }
+        bind "n" { NewTab; SwitchToMode "normal"; }
+        bind "x" { CloseTab; SwitchToMode "normal"; }
+        bind "1" { GoToTab 1; SwitchToMode "normal"; }
+        bind "2" { GoToTab 2; SwitchToMode "normal"; }
+        bind "3" { GoToTab 3; SwitchToMode "normal"; }
+        bind "4" { GoToTab 4; SwitchToMode "normal"; }
+        bind "r" { SwitchToMode "renametab"; TabNameInput 0; }
+    }
+    scroll {
+        bind "e" { EditScrollback; SwitchToMode "normal"; }
+        bind "s" { SwitchToMode "entersearch"; SearchInput 0; }
+        bind "Ctrl s" { SwitchToMode "normal"; }
+        bind "j" "Down" { ScrollDown; }
+        bind "k" "Up" { ScrollUp; }
+        bind "PageDown" { PageScrollDown; }
+        bind "PageUp" { PageScrollUp; }
+    }
+    shared_except "locked" {
+        bind "Ctrl g" { SwitchToMode "locked"; }
+        bind "Ctrl q" { Quit; }
+        bind "Ctrl p" { SwitchToMode "pane"; }
+        bind "Ctrl t" { SwitchToMode "tab"; }
+        bind "Ctrl s" { SwitchToMode "scroll"; }
+        bind "Ctrl o" { SwitchToMode "session"; }
+        bind "Ctrl n" { SwitchToMode "resize"; }
+        bind "Ctrl h" { SwitchToMode "move"; }
+        
+        // Atajos directos disponibles en casi todos los modos
+        bind "Ctrl Shift l" { GoToNextTab; }
+        bind "Ctrl Shift h" { GoToPreviousTab; }
+        bind "Ctrl Alt h" { MoveFocus "left"; }
+        bind "Ctrl Alt j" { MoveFocus "down"; }
+        bind "Ctrl Alt k" { MoveFocus "up"; }
+        bind "Ctrl Alt l" { MoveFocus "right"; }
+    }
+    session {
+        bind "Ctrl o" { SwitchToMode "normal"; }
+        bind "d" { Detach; }
+        bind "q" { Quit; }
+        bind "w" { 
+            LaunchOrFocusPlugin "zellij:session-manager" {
+                floating true
+                move_to_focused_pane true
+            }; 
+            SwitchToMode "normal"; 
+        }
+    }
+}
+
+plugins {
+    tab-bar location="zellij:tab-bar"
+    status-bar location="zellij:status-bar"
+    strider location="zellij:strider"
+    compact-bar location="zellij:compact-bar"
+    session-manager location="zellij:session-manager"
+}
+
+// Configuración visual y de comportamiento
+theme "dracula"
+mouse_mode true
+pane_frames false
+copy_command "pbcopy"
+copy_on_select true
+default_layout "default"
+session_serialization true
+on_force_close "detach"

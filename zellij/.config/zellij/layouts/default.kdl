@@ -1,0 +1,55 @@
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+                format_left  "#[fg=#89B4FA,bold]{session} {tabs}"
+                format_center "{mode}"
+                format_right "{command_git_branch} {datetime}"
+                format_space ""
+
+                border_enabled  "false"
+
+                // --- CHULETA MAESTRA DEFINITIVA ---
+                
+                mode_normal        "#[bg=#89B4FA,fg=#181825,bold] NORMAL #[bg=#1e1e2e,fg=#89B4FA] <p>Pane <t>Tab <s>Scroll <h>Move <n>Resize <o>Session <g>Lock "
+                
+                // MODO PANE: Todo sobre ventanas
+                mode_pane          "#[bg=#A6E3A1,fg=#181825,bold] PANE #[bg=#1e1e2e,fg=#A6E3A1] <n>New <d>Down <r>Right <x>Close <f>Full <s>Sync <w>Floating <p>Next "
+                
+                // MODO TAB: Todo sobre pestañas
+                mode_tab           "#[bg=#CBA6F7,fg=#181825,bold] TAB #[bg=#1e1e2e,fg=#CBA6F7] <n>New <x>Close <r>Rename <h>Left <l>Right <[]>Toggle "
+                
+                // MODO SCROLL: Para leer hacia arriba y buscar
+                mode_scroll        "#[bg=#F9E2AF,fg=#181825,bold] SCROLL #[bg=#1e1e2e,fg=#F9E2AF] <j/k>Up/Down <s>Search <b>Half-Pg <u>Half-Pg-Up <e>Edit "
+                
+                // MODO MOVE: Para mover paneles de sitio
+                mode_move          "#[bg=#F5C2E7,fg=#181825,bold] MOVE #[bg=#1e1e2e,fg=#F5C2E7] <h/j/k/l>Move-Pane <n>Next <p>Prev "
+                
+                // MODO RESIZE: Para cambiar el tamaño de los paneles
+                mode_resize        "#[bg=#FAB387,fg=#181825,bold] RESIZE #[bg=#1e1e2e,fg=#FAB387] <h/j/k/l>Resize <+>Increase <->Decrease "
+                
+                // MODO SESSION: Salir, renombrar y gestión
+                mode_session       "#[bg=#74C7EC,fg=#181825,bold] SESSION #[bg=#1e1e2e,fg=#74C7EC] <d>Detach <w>Manager <r>Rename <q>Quit "
+
+                mode_locked        "#[bg=#F38BA8,fg=#181825,bold] LOCKED #[bg=#1e1e2e,fg=#F38BA8] Ctrl+g:Unlock (Todo desactivado) "
+                mode_enter_search  "#[bg=#F9E2AF,fg=#181825,bold] ENT-SEARCH #[bg=#1e1e2e,fg=#F9E2AF] Type to search... "
+                mode_search        "#[bg=#F9E2AF,fg=#181825,bold] SEARCH #[bg=#1e1e2e,fg=#F9E2AF] <n>Next <p>Prev <c>Cancel "
+                mode_rename_tab    "#[bg=#FAB387,fg=#181825,bold] RENAME-TAB #[bg=#1e1e2e,fg=#FAB387] Enter:Save Esc:Cancel "
+                mode_rename_pane   "#[bg=#FAB387,fg=#181825,bold] RENAME-PANE #[bg=#1e1e2e,fg=#FAB387] Enter:Save Esc:Cancel "
+
+                // Estilo de las pestañas
+                tab_normal              "#[fg=#6C7086] {index} {name} "
+                tab_active              "#[fg=#A6E3A1,bold,italic] {index} {name} "
+
+                command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
+                command_git_branch_format      "#[fg=blue] {stdout} "
+                command_git_branch_interval    "10"
+                command_git_branch_rendermode  "static"
+
+                datetime        "#[fg=#6C7086,bold] {format} "
+                datetime_format "%H:%M"
+            }
+        }
+    }
+}
