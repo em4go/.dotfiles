@@ -95,56 +95,32 @@ background-opacity = 0.93
 window-decoration = auto
 
 # --- Atajos de Teclado ---
-# Migración de "kitty_mod" (Ctrl+Shift) a Ghostty
+# Dejamos que Zellij gestione los paneles y pestañas.
+# Solo mantenemos atajos esenciales del terminal o de la fuente.
 
 # Fuente
 keybind = ctrl+shift+equal=increase_font_size:1
 keybind = ctrl+shift+minus=decrease_font_size:1
 keybind = ctrl+shift+0=reset_font_size
 
-# Pestañas (Mapeo de tus preferencias ctrl+tab)
-keybind = ctrl+tab=next_tab
-keybind = ctrl+shift+tab=previous_tab
-keybind = ctrl+shift+t=new_tab
-keybind = ctrl+shift+q=close_tab
-keybind = ctrl+shift+enter=new_split:auto
-keybind = ctrl+shift+l=next_tab
-keybind = ctrl+shift+h=previous_tab
-
-
-# --- CAPA 2: PANELES / SPLITS (Ctrl + Alt) ---
-
-# Crear y Cerrar Panel
-# ctrl+alt+enter: Crea un nuevo split (automático: derecha o abajo según espacio)
-keybind = ctrl+alt+enter=new_split:auto
-# ctrl+alt+w: Cierra solo el split activo (no la pestaña entera, a menos que sea el último)
-keybind = ctrl+alt+w=close_surface
-
-# Navegar entre Paneles (Foco) - Estilo VIM
-keybind = ctrl+alt+h=goto_split:left
-keybind = ctrl+alt+j=goto_split:bottom
-keybind = ctrl+alt+k=goto_split:top
-keybind = ctrl+alt+l=goto_split:right
-
-# Redimensionar Splits (Estilo Vim extendido)
-# Usamos Ctrl+Alt+Shift para cambiar el tamaño en la dirección indicada
-keybind = ctrl+alt+shift+h=resize_split:left,20
-keybind = ctrl+alt+shift+j=resize_split:down,20
-keybind = ctrl+alt+shift+k=resize_split:up,20
-keybind = ctrl+alt+shift+l=resize_split:right,20
-
-# Utilidades de Paneles
-# Zoom (Maximizar panel actual)
-keybind = ctrl+alt+z=toggle_split_zoom
-# Igualar tamaños (Distribuir espacio equitativamente)
-keybind = ctrl+alt+e=equalize_splits
-
 # Clipboard
 keybind = ctrl+shift+c=copy_to_clipboard
 keybind = ctrl+shift+v=paste_from_clipboard
 
+# El resto de gestión de paneles/pestañas se elimina para que pasen a Zellij
+
 # --- Tema ---
-# Ghostty tiene temas integrados. Puedes usar 'ghostty +list-themes' para verlos.
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 
+# --- Ejecución ---
+# No arrancar Zellij automáticamente desde Ghostty para evitar conflictos de attach.
+# command = /opt/homebrew/bin/zellij attach -c default
+
 maximize = true
+
+# Evita que la ventana se encoja para ajustarse al texto.
+# Rellena el espacio sobrante con el color de fondo.
+window-padding-balance = true
+
+# (Opcional pero recomendado) Hace que el redimensionado sea fluido
+resize-overlay = never
