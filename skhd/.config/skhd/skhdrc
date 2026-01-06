@@ -1,0 +1,54 @@
+# ==============================================================================
+# GESTIÓN DE VENTANAS Y FOCO
+# ==============================================================================
+# Alt + j/k/h/l para cambiar el foco (Vim style)
+lalt - j : yabai -m window --focus south
+lalt - k : yabai -m window --focus north
+lalt - h : yabai -m window --focus west
+lalt - l : yabai -m window --focus east
+
+# Shift + Alt + r para rotar el layout 90 grados
+shift + lalt - r : yabai -m space --rotate 90
+
+# Alt + f para hacer flotante/tiling la ventana activa
+lalt - f : yabai -m window --toggle float
+
+# [NUEVO] Alt + m para zoom/fullscreen de la ventana activa (Individual)
+lalt - m : yabai -m window --toggle zoom-fullscreen
+
+# [NUEVO] Ctrl + Alt + t/s/f para cambiar el layout del espacio (Global)
+ctrl + lalt - t : yabai -m space --layout bsp
+ctrl + lalt - s : yabai -m space --layout stack
+ctrl + lalt - f : yabai -m space --layout float
+
+# Alt + b para equilibrar el tamaño de las ventanas en el espacio
+lalt - b : yabai -m space --balance
+
+
+# ==============================================================================
+# GESTIÓN DE ESPACIOS (WORKSPACES)
+# ==============================================================================
+# Alt + número para cambiar de espacio (Rápido con SIP off)
+lalt - 1 : yabai -m space --focus 1
+lalt - 2 : yabai -m space --focus 2
+lalt - 3 : yabai -m space --focus 3
+lalt - 4 : yabai -m space --focus 4
+
+# ==============================================================================
+# MOVER VENTANAS ENTRE ESPACIOS
+# ==============================================================================
+# Shift + Alt + Número: Mueve ventana y sigue el foco
+shift + lalt - 1 : yabai -m window --space 1; yabai -m space --focus 1
+shift + lalt - 2 : yabai -m window --space 2; yabai -m space --focus 2
+shift + lalt - 3 : yabai -m window --space 3; yabai -m space --focus 3
+shift + lalt - 4 : yabai -m window --space 4; yabai -m space --focus 4
+shift + lalt - 5 : yabai -m window --space 5; yabai -m space --focus 5
+
+# ==============================================================================
+# GESTIÓN DE SERVICIOS (MANTENIMIENTO)
+# ==============================================================================
+# [NUEVO] Shift + Alt + 0: Reiniciar Yabai (útil tras cambios en yabairc)
+shift + lalt - 0 : launchctl kickstart -k "gui/${UID}/service.yabai"
+
+# [NUEVO] Ctrl + Alt + 0: Reiniciar SKHD (útil tras cambios en skhdrc)
+ctrl + lalt - 0 : launchctl kickstart -k "gui/${UID}/service.skhd"
