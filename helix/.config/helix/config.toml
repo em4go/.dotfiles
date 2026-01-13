@@ -51,8 +51,11 @@ focus-lost = true
 # keymaps
 [keys.normal]
 C-s = ":w"
+Cmd-s = ":w"
 C-o = ":open ~/.config/helix/config.toml"
+Cmd-o = ":open ~/.config/helix/config.toml"
 C-r = ":config-reload"
+Cmd-r = ":config-reload"
 esc = ["collapse_selection", "keep_primary_selection"]
 
 #"S-g" = ""
@@ -63,6 +66,7 @@ space.l = "goto_line_end"
 space.h = "goto_line_start"
 g.c = "goto_line_start"
 C-A = "toggle_comments"
+Cmd-A = "toggle_comments"
 
 # move line up or down
 A-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
@@ -82,7 +86,9 @@ k = { j = "normal_mode" } # maps `kj` to exit insert mode
 A-x = "extend_to_line_bounds"
 X = ["extend_line_up", "extend_to_line_bounds"]
 C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+Cmd-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+Cmd-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 G = "goto_last_line"
 p = "paste_clipboard_after"
 P = "paste_clipboard_before"
