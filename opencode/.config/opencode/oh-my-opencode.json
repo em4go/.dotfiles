@@ -1,9 +1,21 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "google_auth": false,
+  "sisyphus_agent": {
+    "disabled": false,
+    "default_builder_enabled": false,
+    "planner_enabled": true,
+    "replace_plan": true
+  },
   "agents": {
     "Sisyphus": {
       "model": "zai-coding-plan/glm-4.7"
+    },
+    "Prometheus (Planner)": {
+      "model": "zai-coding-plan/glm-4.7"
+    },
+    "Metis (Plan Consultant)": {
+      "model": "google/antigravity-gemini-3-pro-high"
     },
     "librarian": {
       "model": "zai-coding-plan/glm-4.7"
@@ -19,6 +31,22 @@
     },
     "multimodal-looker": {
       "model": "google/antigravity-gemini-3-flash"
+    }
+  },
+  "disabled_mcps": [],
+  "disabled_hooks": ["todo-continuation-enforcer"],
+  "categories": {
+    "visual": {
+      "model": "google/antigravity-gemini-3-pro-high",
+      "prompt_append": "Use Zai vision MCP tools for image/video analysis: ui_to_artifact, extract_text_from_screenshot, diagnose_error_screenshot, understand_technical_diagram, analyze_data_visualization, ui_diff_check, image_analysis, video_analysis. Prioritize modern design patterns, accessibility, and responsive design."
+    },
+    "research": {
+      "model": "google/antigravity-gemini-3-flash",
+      "prompt_append": "Use Zai web research MCPs for comprehensive research: webSearchPrime for web search, webReader for fetching content, and zread (get_repo_structure, read_file, search_doc) for GitHub code research. Be thorough and search multiple angles before concluding."
+    },
+    "logic": {
+      "model": "zai-coding-plan/glm-4.7",
+      "prompt_append": "Focus on correctness, type safety, and maintainability. Use Context7 for official documentation when working with unfamiliar libraries."
     }
   }
 }
