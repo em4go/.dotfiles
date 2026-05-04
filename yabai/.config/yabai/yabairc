@@ -46,14 +46,14 @@ yabai -m config mouse_drop_action swap # Soltar ventana intercambia lugar
 # REGLAS DE EXCLUSIÓN (APPS FLOTANTES)
 # ==============================================================================
 # Apps del sistema que no funcionan bien en tiling
-yabai -m rule --add app="^(System Settings|Ajustes del Sistema)$" manage=off sub-layer=below
-yabai -m rule --add app="^(Activity Monitor|Monitor de Actividad)$" manage=off sub-layer=below
-yabai -m rule --add app="^(Disk Utility|Utilidad de Discos)$" manage=off sub-layer=below
-yabai -m rule --add app="^Calculator$" manage=off sub-layer=below
-yabai -m rule --add app="^Finder$" manage=off sub-layer=below
-yabai -m rule --add app="^Karabiner-Elements$" manage=off sub-layer=below
-yabai -m rule --add app="^Raycast$" manage=off sub-layer=below
-yabai -m rule --add app="^Stats$" manage=off sub-layer=below
+yabai -m rule --add app="^(System Settings|Ajustes del Sistema)$" manage=off
+yabai -m rule --add app="^(Activity Monitor|Monitor de Actividad)$" manage=off
+yabai -m rule --add app="^(Disk Utility|Utilidad de Discos)$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^Stats$" manage=off
 
 # Reglas específicas de espacios
 yabai -m rule --add app="^Ghostty$" space=^2
