@@ -42,7 +42,7 @@
       "space /": "pane::DeploySearch", // Búsqueda global
 
       // Navegación de Buffers (Tabs)
-      "tab": "pane::ActivateNextItem"
+      // "tab": "pane::ActivateNextItem"
     }
   },
   {
@@ -83,6 +83,7 @@
       "ctrl-v": "editor::Paste",
       "ctrl-z": "editor::Undo",
       "ctrl-y": "editor::Redo",
+      "cmd-y": "editor::Redo",
       "ctrl-f": "buffer_search::Deploy",
       "ctrl-a": "editor::SelectAll"
     }
@@ -102,6 +103,18 @@
       // --- Terminal ---
       // Usamos Alt+t dentro de la terminal para evitar escribir espacios
       "alt-t": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "(Editor && edit_prediction)",
+    "bindings": {
+      "tab": "editor::AcceptEditPrediction"
+    }
+  },
+  {
+    "context": "((os != macos && Editor) && (edit_prediction && (showing_completions || in_leading_whitespace)))",
+    "bindings": {
+      "tab": "editor::AcceptEditPrediction"
     }
   }
 ]
