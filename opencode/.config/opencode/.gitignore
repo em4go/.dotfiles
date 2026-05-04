@@ -2,3 +2,7 @@ node_modules
 package.json
 bun.lock
 antigravity-accounts.json
+.gitignore
+antigravity-accounts.json.*.tmp
+antigravity-signature-cache.json
+antigravity-logs/
